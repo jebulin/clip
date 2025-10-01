@@ -1,8 +1,9 @@
 // src/components/WhatsAppButton.tsx
 import React from 'react';
+import { BUSINESS_NUMBER } from '../config/constants';
 
 // !!! REPLACE YOUR_PHONE_NUMBER !!!
-const BUSINESS_NUMBER = 'YOUR_PHONE_NUMBER'; 
+
 
 interface WhatsAppButtonProps {
     productName?: string; // Optional name to customize the chat message
