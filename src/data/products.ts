@@ -8,6 +8,7 @@ export interface Product {
   description: string;
   imageUrl: string; // Placeholder for image path or URL
   price: string;
+  images: string[];
   tags: string[]; // For better search functionality
 }
 
@@ -19,7 +20,12 @@ export const PRODUCTS: Product[] = [
     category: "Hair Clips",
     description:
       "A classic, handcrafted hair clip with delicate pearl accents.",
-    imageUrl: "https://jebulin.github.iohttps://jebulin.github.io/images/clip.png",
+    imageUrl: "https://jebulin.github.io/images/clip.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
+
     price: "₹250",
     tags: ["pearl", "wedding", "white", "formal"],
   },
@@ -29,6 +35,10 @@ export const PRODUCTS: Product[] = [
     category: "Brooches",
     description: "Vibrant peacock design perfect for sarees and shawls.",
     imageUrl: "https://jebulin.github.io/images/brooch.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹499",
     tags: ["peacock", "saree", "traditional", "blue", "green"],
   },
@@ -38,6 +48,10 @@ export const PRODUCTS: Product[] = [
     category: "Hair Clips",
     description: "Simple and modern golden metal hair clip for everyday use.",
     imageUrl: "https://jebulin.github.io/images/brooch.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹150",
     tags: ["metal", "modern", "golden", "everyday"],
   },
@@ -47,6 +61,10 @@ export const PRODUCTS: Product[] = [
     category: "Brooches",
     description: "Beautiful kundan work in a floral pattern.",
     imageUrl: "https://jebulin.github.io/images/clip.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹550",
     tags: ["kundan", "floral", "saree", "pink"],
   },
@@ -57,6 +75,10 @@ export const PRODUCTS: Product[] = [
     description:
       "A classic, handcrafted hair clip with delicate pearl accents.",
     imageUrl: "https://jebulin.github.io/images/clip.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹250",
     tags: ["pearl", "wedding", "white", "formal"],
   },
@@ -66,6 +88,10 @@ export const PRODUCTS: Product[] = [
     category: "Brooches",
     description: "Vibrant peacock design perfect for sarees and shawls.",
     imageUrl: "https://jebulin.github.io/images/brooch.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹499",
     tags: ["peacock", "saree", "traditional", "blue", "green"],
   },
@@ -75,6 +101,10 @@ export const PRODUCTS: Product[] = [
     category: "Hair Clips",
     description: "Simple and modern golden metal hair clip for everyday use.",
     imageUrl: "https://jebulin.github.io/images/brooch.png",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     price: "₹150",
     tags: ["metal", "modern", "golden", "everyday"],
   },
@@ -85,6 +115,10 @@ export const PRODUCTS: Product[] = [
     description: "Beautiful kundan work in a floral pattern.",
     imageUrl: "https://jebulin.github.io/images/clip.png",
     price: "₹550",
+    images: [
+      "https://jebulin.github.io/images/clip.png",
+      "https://jebulin.github.io/images/brooch.png",
+    ],
     tags: ["kundan", "floral", "saree", "pink"],
-  }
+  },
 ];

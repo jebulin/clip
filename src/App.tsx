@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import WhatsAppButton from './components/WhatsAppButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NAVLINKS } from './helper/constants';
 
 const App: React.FC = () => {
   return (
@@ -11,13 +13,13 @@ const App: React.FC = () => {
       <AppHeader />
       <Routes>
         {/* Home Page Route */}
-        <Route path="/" element={<HomePage />} />
+        <Route path={NAVLINKS.HOME} element={<HomePage />} />
         
         {/* Products Page Route (handles listing, search, and category filter) */}
-        <Route path="/products" element={<ProductsPage />} />
+        <Route path={NAVLINKS.PRODUCTS} element={<ProductsPage />} />
         
         {/* Search Route - uses the ProductsPage component */}
-        <Route path="/search" element={<ProductsPage />} /> 
+        <Route path={NAVLINKS.SEARCH} element={<ProductsPage />} /> 
 
         {/* Fallback for 404 - simple text for now */}
         <Route path="*" element={<h1 style={{ textAlign: 'center', marginTop: '50px' }}>404 - Page Not Found</h1>} />
@@ -38,9 +40,9 @@ const AppHeader: React.FC = () => (
     
     {/* Right side: Navigation Links */}
     <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/products">Products</NavLink>
-      <NavLink to="/search">Search</NavLink> 
+      <NavLink to={NAVLINKS.HOME}>Home</NavLink>
+      <NavLink to={NAVLINKS.PRODUCTS}>Products</NavLink>
+      <NavLink to={NAVLINKS.SEARCH}>Search</NavLink> 
     </div>
   </nav>
 );

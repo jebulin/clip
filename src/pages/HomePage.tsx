@@ -1,6 +1,7 @@
 // src/pages/HomePage.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { NAVLINKS } from '../helper/constants';
 
 // Component for a clean, responsive category link
 interface CategoryLinkProps {
@@ -84,14 +85,14 @@ const HomePage: React.FC = () => {
         <div style={categoryContainerStyle}>
           
           <CategoryLink
-            to="/products?category=Hair Clips" 
+            to={`${NAVLINKS.PRODUCTS}?category=Hair Clips` }
             icon="🎀"
             title="Hair Clips"
             description="Perfect for every occasion, from minimalist to grand."
           />
 
           <CategoryLink
-            to="/products?category=Brooches" 
+            to={`${NAVLINKS.PRODUCTS}?category=Brooches`}
             icon="💎"
             title="Brooches"
             description="Add a touch of regal splendor to your sarees."
@@ -101,7 +102,7 @@ const HomePage: React.FC = () => {
         {/* Link to see all products */}
         <div style={{ marginTop: '50px', textAlign: 'center' }}>
           <Link 
-            to="/products" 
+            to={NAVLINKS.PRODUCTS}
             style={viewAllLinkStyle}
             onMouseEnter={(e) =>{ e.currentTarget.style.backgroundColor = '#A52A2A', e.currentTarget.style.color = 'white'}}
             onMouseLeave={(e) => {e.currentTarget.style.backgroundColor = 'transparent', e.currentTarget.style.color = '#A52A2A'}}

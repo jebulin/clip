@@ -1,7 +1,7 @@
 // src/components/ProductCard.tsx
-import React from "react";
+import React, { useState } from "react";
 import type { Product } from "../data/products";
-import { BUSINESS_NUMBER } from "../config/constants";
+import ViewProductCard from "./ViewProductCard";
 
 interface ProductCardProps {
   product: Product;
@@ -9,15 +9,14 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   // Function to open WhatsApp chat with product details
+  const [showModel, setShowModel] = useState(false);
+
+  const onHide = () => {
+    setShowModel(false);
+  };
   const handleProductClick = () => {
     // We reuse the WhatsAppButton's logic by creating a dummy button here and clicking the inner link
-    const baseMessage = `Hello, I'm interested in the product: ${product.name} (Category: ${product.category}, Price: ${product.price}). Could you provide more details?`;
-    const encodedMessage = encodeURIComponent(baseMessage);
-
-    // !!! REPLACE YOUR_PHONE_NUMBER !!!
-    const WHATSAPP_URL = `https://wa.me/${BUSINESS_NUMBER}?text=${encodedMessage}`;
-
-    window.open(WHATSAPP_URL, "_blank");
+    setShowModel(true);
   };
 
   const cardStyle: React.CSSProperties = {
@@ -34,33 +33,41 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div
-      style={cardStyle}
-      onClick={handleProductClick} // Handle the click event here
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-5px)";
-        e.currentTarget.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.2)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
-      }}
-    >
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        style={{ width: "100%", height: "200px", objectFit: "cover" }}
-      />
-      <div style={{ padding: "15px" }}>
-        <h3 style={{ margin: "0 0 5px 0", color: "#333" }}>{product.name}</h3>
-        <p style={{ color: "#888", fontSize: "0.9em", margin: "0 0 10px 0" }}>
-          {product.category}
-        </p>
-        <p style={{ color: "#A52A2A", fontWeight: "600", fontSize: "1.2em" }}>
-          {product.price}
-        </p>
+    <>
+      <div
+        style={cardStyle}
+        onClick={handleProductClick} // Handle the click event here
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-5px)";
+          e.currentTarget.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.2)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.1)";
+        }}
+      >
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          style={{ width: "100%", height: "200px", objectFit: "cover" }}
+        />
+        <div style={{ padding: "15px" }}>
+          <h3 style={{ margin: "0 0 5px 0", color: "#333" }}>{product.name}</h3>
+          <p style={{ color: "#888", fontSize: "0.9em", margin: "0 0 10px 0" }}>
+            {product.category}
+          </p>
+          <p style={{ color: "#A52A2A", fontWeight: "600", fontSize: "1.2em" }}>
+            {product.price}
+          </p>
+        </div>
       </div>
-    </div>
+      <ViewProductCard
+        images={product.images}
+        onHide={onHide}
+        show={showModel}
+        product={product}
+      />
+    </>
   );
 };
 
