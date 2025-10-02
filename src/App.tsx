@@ -35,7 +35,7 @@ const AppHeader: React.FC = () => (
   <nav style={navStyle}>
     {/* Left side: Company Logo/Name */}
     <div style={{ fontWeight: 'bold', fontSize: '1.8em', letterSpacing: '1px' }}>
-      <Link to="/" style={logoLinkStyle}>Try Today</Link>
+      <Link to={NAVLINKS.HOME} style={logoLinkStyle}>Try Today</Link>
     </div>
     
     {/* Right side: Navigation Links */}
